@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Investors - Backend</title>
+    <style>
+        h1{
+            font-size: 40px;
+            text-align: center;
+            background-color: cornflowerblue;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Add Masai Investor Details</h1>
+    </div>
+    <form id="investorsForm">
+        <input type="text" placeholder="Enter Image URL" id="imgURL">
+        <input type="text" placeholder="Enter Investor Name" id="name">
+        <input type="text" placeholder="Enter Role" id="role">
+        <input type="text" placeholder="Enter Company Logo URL" id="logoURL">
+        <input type="submit" >
+    </form>
+</body>
+</html>
+
+<script>
+    document.querySelector("#investorsForm").addEventListener("submit",detailsFun);
+
+    var investorsArr = JSON.parse(localStorage.getItem("investorsData")) || [];
+
+    function detailsFun(){
+        // event.preventDefault();
+
+    var investorsObj = {
+
+        investorsImage: investorsForm.imgURL.value,
+        investorsName: investorsForm.name.value,
+        investorsRole: investorsForm.role.value,
+        investorsLogo: investorsForm.logoURL.value
+    };
+    investorsArr.push(investorsObj);
+    
+    localStorage.setItem("investorsData",JSON.stringify(investorsArr))
+}
+</script>

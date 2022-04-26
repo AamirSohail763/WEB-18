@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Investors - Frontend</title>
+    <style>
+        #container{
+            display: flex;
+            margin: auto;
+            width: 95%;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .card{
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+        p+img{
+            height: 50px;
+            border-bottom-left-radius: 10px;
+        }
+        #avatar{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+var headline = document.createElement("h1")
+    headline.innerText="Strategic Investors"
+    headline.style.textAlign="center"
+    headline.style.fontSize="34px"
+    headline.style.fontFamily="sans-serif"
+    headline.style.fontWeight="900"
+    document.querySelector("body").append(headline)
+
+
+    investorsData = JSON.parse(localStorage.getItem("investorsData"))
+    
+    var container = document.createElement("div")
+    container.setAttribute("id","container")
+    document.querySelector("body").append(container)
+
+    investorsData.forEach(function(ele){
+        var card = document.createElement("div")
+        card.setAttribute("class","card")
+
+        var avatar = document.createElement("img")
+        avatar.setAttribute("src",ele.investorsImage)
+        avatar.setAttribute("id","avatar" )
+
+        var name = document.createElement("h2")
+        name.innerText=ele.investorsName
+        var role = document.createElement("p")
+        role.innerText=ele.investorsRole
+        var logo = document.createElement("img")
+        logo.setAttribute("src",ele.investorsLogo)
+
+        card.append(avatar,name,role,logo)
+        document.querySelector("#container").append(card)
+    });
+
+</script>
