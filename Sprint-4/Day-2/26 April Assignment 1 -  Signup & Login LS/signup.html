@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Page</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        h2{
+            text-align: center;
+        }
+        input{
+            display: block;
+            margin: auto;
+            width: 20%;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        p{
+            display: inline;
+        }
+        #p1{
+            margin-left: 45%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Sign-Up</h2>
+    <div>
+        <form id="form">
+            <input type="email" id="email" placeholder="Enter email">
+            <input type="number" id="mobile" placeholder="Enter mobile number">
+            <input type="text" id="password" placeholder="Enter password">
+            <input type="submit" id="save">
+        </form>
+    </div>
+    <p id="p1">Signed Up.?</p>
+    <p><a href="login.html">Login</a></p>
+</body>
+</html>
+
+<script>
+
+    document.querySelector("form").addEventListener("submit",saveData)
+    function saveData(){
+        event.preventDefault();
+        var signupData = {
+            email: form.email.value,
+            mobile: form.mobile.value,
+            password : form.password.value
+        };
+        localStorage.setItem("userData",JSON.stringify(signupData))
+        alert("Sign-Up Successful..!! Please Log-In")
+    }
+</script>

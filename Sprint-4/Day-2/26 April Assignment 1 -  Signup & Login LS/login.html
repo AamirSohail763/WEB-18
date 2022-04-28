@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-In Page</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+        h2{
+            text-align: center;
+        }
+        input{
+            display: block;
+            margin: auto;
+            width: 20%;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Log-In</h2>
+    <div>
+        <form id="form">
+            <input type="email" id="email" placeholder="Enter email">
+            <input type="text" id="password" placeholder="Enter password">
+            <input type="submit" id="save">
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    var signupData= JSON.parse(localStorage.getItem("userData"));
+    document.getElementById("form").addEventListener("submit",loginFun)
+    function loginFun(){
+        event.preventDefault();
+
+        var data = {
+            email: form.email.value,
+            password: form.password.value
+        };
+
+        if(signupData==null){
+            alert("Please Sign-Up First.!!")
+        }
+        else if(signupData.email==data.email && signupData.password==data.password)
+        {
+            alert("Log-In Successful.!!")
+        }
+        else{
+            alert("Wrong Credentials.!!")
+        }
+    }
+</script>
